@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RevMine: Empire Excavation</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <img class="logo" src="assets/ui/logo.svg" alt="RevMine: Empire Excavation" />
+        <button id="resetButton" class="icon-button subtle" type="button" title="Reset save">Reset</button>
+      </header>
+
+      <section class="hero-panel">
+        <div class="mine-stage" aria-label="Mining operation">
+          <img class="mine-bg" src="assets/backgrounds/mine-background.svg" alt="" />
+          <img id="minerImage" class="miner-art" src="assets/miners/rusty-miner.svg" alt="Rusty Miner" />
+          <button id="mineButton" class="mine-button" type="button">
+            <span class="mine-button__label">Mine</span>
+            <span id="tapValue" class="mine-button__value">+0.05</span>
+          </button>
+        </div>
+
+        <div class="balances">
+          <div class="balance-tile primary">
+            <img src="assets/currency/revcoin.svg" alt="" />
+            <span>RevCoins</span>
+            <strong id="coinBalance">0</strong>
+          </div>
+          <div class="balance-tile premium">
+            <img src="assets/currency/premium-revcoin.svg" alt="" />
+            <span>Premium</span>
+            <strong id="premiumBalance">0</strong>
+          </div>
+          <div class="balance-tile">
+            <span>Net / Sec</span>
+            <strong id="netPerSecond">0</strong>
+          </div>
+        </div>
+      </section>
+
+      <section id="offlinePanel" class="offline-panel hidden">
+        <div>
+          <span>Offline haul</span>
+          <strong id="offlineReward">0 RevCoins</strong>
+        </div>
+        <button id="claimOfflineButton" class="small-action" type="button">Claim</button>
+      </section>
+
+      <section class="status-grid" aria-label="Mining stats">
+        <article>
+          <span>Miner</span>
+          <strong id="minerName">Rusty Miner</strong>
+        </article>
+        <article>
+          <span>Hash Power</span>
+          <strong id="hashPower">1.0</strong>
+        </article>
+        <article>
+          <span>Network Difficulty</span>
+          <strong id="difficulty">1.00</strong>
+        </article>
+        <article>
+          <span>Electricity</span>
+          <strong id="electricityCost">0.02/sec</strong>
+        </article>
+      </section>
+
+      <section class="meter-section">
+        <div class="meter-row">
+          <div>
+            <span>Miner Condition</span>
+            <strong id="conditionText">100%</strong>
+          </div>
+          <div class="meter"><span id="conditionBar"></span></div>
+        </div>
+        <div class="meter-row">
+          <div>
+            <span>Boost</span>
+            <strong id="boostText">Inactive</strong>
+          </div>
+          <div class="meter boost"><span id="boostBar"></span></div>
+        </div>
+      </section>
+
+      <section class="actions">
+        <button id="minerUpgradeButton" class="action-card" type="button">
+          <img src="assets/ui/upgrade-button.svg" alt="" />
+          <span>Upgrade Miner</span>
+          <strong id="minerUpgradeCost">75</strong>
+        </button>
+        <button id="repairButton" class="action-card" type="button">
+          <img src="assets/ui/repair-button.svg" alt="" />
+          <span>Repair</span>
+          <strong id="repairCost">20</strong>
+        </button>
+        <button id="powerUpgradeButton" class="action-card" type="button">
+          <img src="assets/ui/power-generator.svg" alt="" />
+          <span>Power System</span>
+          <strong id="powerUpgradeCost">120</strong>
+        </button>
+        <button id="coolingUpgradeButton" class="action-card" type="button">
+          <img src="assets/ui/cooling-fan.svg" alt="" />
+          <span>Cooling</span>
+          <strong id="coolingUpgradeCost">100</strong>
+        </button>
+      </section>
+
+      <section class="ad-section">
+        <h2>Rewarded Boosts</h2>
+        <div class="ad-grid">
+          <button id="adBoostButton" class="ad-button" type="button">
+            <img src="assets/ui/boost-button.svg" alt="" />
+            <span>2x Mining Power</span>
+            <strong>15 min</strong>
+          </button>
+          <button id="adRepairButton" class="ad-button" type="button">
+            <img src="assets/ui/repair-button.svg" alt="" />
+            <span>Free Repair</span>
+            <strong>Ad</strong>
+          </button>
+          <button id="adChestButton" class="ad-button" type="button">
+            <img src="assets/ui/treasure-chest.svg" alt="" />
+            <span>Treasure Chest</span>
+            <strong>Ad</strong>
+          </button>
+          <button id="adPremiumButton" class="ad-button" type="button">
+            <img src="assets/currency/premium-revcoin.svg" alt="" />
+            <span>Premium RevCoins</span>
+            <strong>Ad</strong>
+          </button>
+        </div>
+      </section>
+
+      <section class="tier-section">
+        <h2>Miner Roadmap</h2>
+        <div id="tierList" class="tier-list"></div>
+      </section>
+
+      <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>
